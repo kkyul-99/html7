@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>표</title>
+        <style>
+            table,th,td{border:1px solid black; border-collapse:collapse;}
+            th,td{width:100px; height:40px; text-align:center;}
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td colspan="3">6</td> <!-- colspan: 행(가로) 합치기 -->
+            </tr>
+            <tr>
+                <td colspan="2">9</td>
+                <td>11</td>
+                <td>12</td>
+            </tr>
+        </table>
+        <hr>
+        <table>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td rowspan="2">4</td> <!-- rowspan: 열(세로) 합치기 -->
+            </tr>
+            <tr>
+                <td>5</td>
+                <td rowspan="2">6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>11</td>
+                <td>12</td>
+            </tr>
+        </table>
+    </body>
+</html>
