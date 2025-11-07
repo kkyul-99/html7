@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- UTF-8: 국제 표준 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>area 태그</title>
+</head>
+<body>
+    <h2>이벤트 - area 태그 사용하기</h2>
+    <img src="image/event01.jpg" usemap="#s_event">
+    <!-- map: 이미지에 area 링크를 적용 -->
+     <!-- shape:모양 - rect,circle,poly / coords:위치값 -->
+      <!-- coords - rect: 왼쪽 상단 꼭지점 좌표,오른쪽 하단 꼭지점 좌표 / circle: 중심점 좌표,반지름 길이 -->
+    <map name="s_event">
+        <area shape="rect" coords="110,370,610,585"
+        href="http://www.samsung.com" target="_blank">
+        <area shape="rect" coords="70,650,260,855"
+        href="https://www.samsung.com/sec/refrigerators/all-refrigerators/" target="_blank">
+        <area shape="rect" coords="265,650,460,855"
+        href="https://www.samsung.com/sec/washers-and-dryers/all-washers-and-dryers/" target="_blank">
+        <area shape="rect" coords="460,650,655,855"
+        href="https://www.samsung.com/sec/tvs/all-tvs/" target="_blank">
+        <area shape="circle" coords="165,960,100"
+        href="https://www.samsung.com/sec/smartphones/all-smartphones/" target="_blank">
+        <area shape="poly" coords="455,855,260,1065,655,1065"
+        href="https://www.samsung.com/sec/galaxybook/all-galaxybook/" target="_blank">
+    </map>
+</body>
+</html>

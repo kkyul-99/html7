@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK브로드밴드 로그인</title>
+    <style>
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        label {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .save-id {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .save-id input {
+            margin-right: 5px;
+        }
+
+        .login-btn {
+            width: 100%;
+            background-color: #4a3aff;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .login-btn:hover {
+            background-color: #3b2ecc;
+        }
+
+        .links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .links a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .notice {
+            background-color: #f8f8f8;
+            font-size: 13px;
+            color: #555;
+            text-align: left;
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 5px;
+            line-height: 1.6;
+        }
+
+        .notice span {
+            color: #d00;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/SK_Broadband_logo.svg" alt="SK Broadband Logo">
+        </div>
+        <h1>SK브로드밴드에 오신 것을 환영합니다.</h1>
+        <p>서비스를 이용하시려면 로그인 해주세요.</p>
+
+        <form>
+            <label for="id">아이디</label>
+            <input type="text" id="id" name="id" placeholder="아이디 입력">
+
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" name="password" placeholder="비밀번호 입력">
+
+            <div class="save-id">
+                <input type="checkbox" id="saveId">
+                <label for="saveId">아이디 저장</label>
+            </div>
+
+            <button type="submit" class="login-btn">로그인</button>
+
+            <div class="links">
+                <a href="#">회원가입</a>
+                <a href="#">아이디/비밀번호 찾기</a>
+            </div>
+        </form>
+
+        <div class="notice">
+            • 고객님의 소중한 정보 보호를 위해 로그인 시 보안문자 입력항목이 추가되었습니다.<br>
+            • <span>비밀번호 입력 5회 이상 오류 시 로그인 제한</span>되며, 비밀번호 재설정을 통해 새로운 비밀번호를 설정하셔야 로그인하실 수 있습니다.
+        </div>
+    </div>
+</body>
+</html>
