@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            *{padding:0; margin:0;}
+            video{width:100%; height:700px; object-fit:cover;
+                    margin-bottom:80px;}
+            h1{position:absolute; left:38px; top: 385px;
+                font-size:61px; color:white;}
+            p{position:absolute; left:38px; top:477px;
+                font-size:16px; line-height:30px; color:white;}
+            .main{width:100%; height:660px; display:flex;}
+            .main_l{width:50%; height:660px;
+                    background:url("image/nike1.avif"); background-size:cover;}
+            .main_r{width:50%; height:660px;
+                    background:url("image/nike2.avif"); background-size:cover;}
+            h4{padding:490px 0 0 38px; color:white;
+                font-size:40px; font-weight:500; letter-spacing:1px;}
+            #button{width:90px;height:40px; margin:20px 0 0 38px;
+                    background:white; border-radius:20px;
+                    font-weight:500; line-height:38px; text-align:center;}
+        </style>
+    </head>
+    <body>
+        <!-- div:100%,650px; 나이키 동영상 전체화면에 출력 -->
+        <!-- 스우시 시리즈 푸퍼 패딩 -->
+        <!-- 추위를 위한 설계, 움직임을 위한 디자인. -->
+        <!-- 스우시 시리즈 푸퍼 패딩 컬렉션을 소개합니다. -->
+        <div class="media">
+            <video src="image/nike_main.mp4" autoplay muted loop></video>
+            <h1><strong>스우시 시리즈 푸퍼 패딩</strong></h1>
+            <p>추위를 위한 설계, 움직임을 위한 디자인.<br>스우시 시리즈 푸퍼 패딩 컬렉션을 소개합니다.<p>
+            <div id="button1">구매하기</div>
+        </div>
+        <!-- 동영상 사이 공백 -->
+        <div class="section"></div>
+        <!-- 이미지 2개 -->
+        <div class="main">
+            <div class="main_l">
+                <h4>여성 겨울 의류</h4>
+                <div id="button">구매하기</div>
+            </div>
+            <div class="main_r">
+                <h4>남성 겨울 의류</h4>
+                <div id="button">구매하기</div>
+            </div>
+        </div>
+    </body>
+</html>

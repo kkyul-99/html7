@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        *{margin:0; padding:0;}
+        .main{border:1px solid black; width:1500px; height:400px;
+            margin: 50px auto;
+            display: flex; justify-content: space-between;
+            align-items: center;
+        }
+        .main>div{width:300px; height:200px; border:1px solid red; }
+
+        .nav{width:1200px; height:128px;
+            margin: 50px auto;
+            display: flex; 
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .nav>div{width:200px; height:64px; border:1px solid white;
+          box-sizing: border-box; background: #f5f5f5;
+          border-radius: 8px;
+        }
+        .nav .d01{border:1px solid #5e2bb8; background:#f6f2fb; }
+
+    </style>
+</head>
+<body>
+    <div class="nav"> <!--1200, 128-->
+        <div class="d01">1</div>  <!--200,64 -->
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+    <hr>
+    <!-- id,class선택자-위치값, id:document 1개존재, class:여러개 존재 -->
+    <div class="main"> <!-- 1500,400 가운데정렬 -->
+        <div>1</div> <!-- 300,200 가로 space-between, 세로 가운데정렬 -->
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+    
+</body>
+</html>
