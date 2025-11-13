@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .c01{width:100px; height:100px;
+                    border:1px solid black;
+                    animation:rotate 2s infinite alternate, back 2s infinite alternate;}
+            @keyframes rotate{
+                from{transform:perspective(80px) rotateX(0deg) rotateY(0deg);}
+                50%{transform:perspective(80px) rotateX(-180deg) rotateY(0deg);}
+                to{transform:perspective(80px) rotateX(-180deg) rotateY(-180deg);}
+            }
+            @keyframes back{
+                from{background:red;}
+                50%{background:green;}
+                to{background:blue;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class="c01"></div>
+    </body>
+</html>
