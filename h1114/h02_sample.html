@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding:0; margin:0;}
+        a{text-decoration:none; color:inherit;}
+        header{width:100%; height:60px; display:flex;
+                border-bottom:1px solid #f0f0f0;}
+        .top_menu{list-style:none; display:flex; align-items:center;
+                margin-left:auto; margin-right:50px; gap:15px;
+                font-size:13px; color:#636363;}
+        .top_menu a:hover{color:#035fe0;}
+        nav{display:flex;}
+        .menu{width:auto; height:80px; margin:0 auto; gap:90px;
+                list-style:none; display:flex; align-items:center;
+                font-size:19px; font-weight:500; color:#1d1d1d;
+                 letter-spacing:-0.5px;}
+        .menu li{width:auto; line-height:80px;}
+        .menu li:hover{color:#718929; border-bottom:3px solid #718929;}
+        .banner{width:100%; height:320px;
+                display:flex; justify-content:center; align-items:center; 
+                background:url("image/bg_topBg1_2.jpg");
+                position:relative;}
+        .banner_txt{display:flex; flex-direction:column;
+                    text-align:center; color:white;
+                    text-shadow:3px 5px 7px black;}
+        .banner_txt h4{font-size:48px;}
+        .banner_txt p{font-size:28px;}
+        .board{display:flex;
+                flex-direction:column;}
+        .board_title{width:1000px; height:40px; margin:50px auto 20px;
+                        font-size:28px; font-weight:bold; text-align:center;}
+        .board_table{margin:0 auto;}
+        .board_table table{width:1000px; border-collapse:collapse;
+                            font-size:14px;}
+        .board_table th,td{height:20px; padding:12px 10px;
+                            border-bottom:1px solid #e0e0e0;}
+        .board_table th{border-top:1px solid #848484; background-color: #f9f9f9;
+                        text-align:left; font-weight:600;}
+        .board_table a:hover{text-decoration:underline; color:#035fe0;}
+        .board_table .date{font-size:13px; color:#888;}
+        .board_table .views{font-size:13px; color:#888;}
+        .board_footer{width:1000px; height:75px; margin:0 auto;
+                        display:flex; flex-direction:column; gap:15px;}
+        .board_footer .page{width:1000px; margin-top:30px; 
+                            display:flex; justify-content:center;}
+        .board_footer .searchbox{text-align:center;}
+    </style>
+</head>
+<body>
+    <header>
+        <ul class="top_menu">
+            <li><a href="#">회원가입</a></li>|
+            <li><a href="#">로그인</a></li>|
+            <li><a href="#">주문조회</a></li>|
+            <li><a href="#">최근본상품</a></li>
+        </ul>
+    </header>
+    <nav>
+        <ul class="menu">
+            <li><a href="#">포레스트</a></li>
+            <li><a href="#">스파</a></li>
+            <li><a href="#">객실</a></li>
+            <li><a href="#">특별한 경험</a></li>
+            <li><a href="#">부대시설</a></li>
+            <li><a href="#">브랜드 소개</a></li>
+        </ul>
+    </nav>
+    <div class="banner">
+        <div class="banner_txt">
+            <h4>리조트 이용 Q&A</h4>
+            <p>편리한 이용을 위해 유선문의 전 확인해주세요.</p>
+        </div>
+    </div>
+    <div class="board">
+        <div class="board_title">공지사항</div>
+        <div class="board_table">
+            <table>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                    <th>조회수</th>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><a href="#">[공지] 추석 연휴 배송 안내</a></td>
+                    <td>관리자</td>
+                    <td class="date">2025-09-05</td>
+                    <td class="views">123</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><a href="#">9월 신규 회원 이벤트 안내</a></td>
+                    <td>운영팀</td>
+                    <td class="date">2025-09-01</td>
+                    <td class="views">98</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><a href="#">[점검] 사이트 정기 점검 안내</a></td>
+                    <td>관리자</td>
+                    <td class="date">2025-08-28</td>
+                    <td class="views">211</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><a href="#">배송비 정책 변경 안내</a></td>
+                    <td>관리자</td>
+                    <td class="date">2025-08-20</td>
+                    <td class="views">156</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><a href="#">홈페이지 리뉴얼 오픈!</a></td>
+                    <td>운영팀</td>
+                    <td class="date">2025-08-10</td>
+                    <td class="views">324</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="board_footer">
+        <div class="page">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+        </div>
+        <div class="searchbox">
+            <input type="text" placeholder="검색어 입력">
+            <button>검색</button>
+        </div>
+    </div>
+</body>
+</html>

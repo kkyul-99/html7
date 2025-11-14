@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+        }
+
+        /* 상단 메뉴 */
+        .top-menu {
+            text-align: right;
+            padding: 15px 40px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .top-menu a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 12px;
+        }
+
+        .top-menu span {
+            color: #aaa;
+            margin: 0 6px;
+        }
+
+        /* 전체 래퍼 */
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 40px;
+            text-align: center;
+        }
+
+        /* 제목 */
+        h1 {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        /* 표 */
+        table {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            border-bottom: 1px solid #ddd;
+            padding: 14px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        table th {
+            background: #f8f8f8;
+            font-weight: bold;
+        }
+
+        /* 페이징 */
+        .pagination {
+            margin-top: 25px;
+        }
+
+        .pagination button {
+            border: 1px solid #ccc;
+            background: #fff;
+            padding: 7px 12px;
+            margin: 0 3px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background: #eee;
+        }
+
+        .pagination .active {
+            background: #1a73e8;
+            color: #fff;
+            border-color: #1a73e8;
+        }
+
+        /* 검색창 */
+        .search-box {
+            margin-top: 20px;
+        }
+
+        .search-box input {
+            padding: 8px 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-box button {
+            padding: 9px 16px;
+            background: #1a73e8;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .search-box button:hover {
+            background: #0f5fcc;
+        }
+
+        /* 푸터 */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            color: #777;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 상단 메뉴 -->
+<div class="top-menu">
+    <a href="#">회원가입</a>
+    <span>|</span>
+    <a href="#">로그인</a>
+    <span>|</span>
+    <a href="#">주문조회</a>
+    <span>|</span>
+    <a href="#">최근본상품</a>
+</div>
+
+<div class="wrapper">
+
+    <h1>공지사항</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>5</td>
+                <td>[공지] 추석 연휴 배송 안내</td>
+                <td>관리자</td>
+                <td>2025-09-05</td>
+                <td>123</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>9월 신규 회원 이벤트 안내</td>
+                <td>운영팀</td>
+                <td>2025-09-01</td>
+                <td>98</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>[점검] 사이트 정기 점검 안내</td>
+                <td>관리자</td>
+                <td>2025-08-28</td>
+                <td>211</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>배송비 정책 변경 안내</td>
+                <td>관리자</td>
+                <td>2025-08-20</td>
+                <td>156</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>홈페이지 리뉴얼 오픈!</td>
+                <td>운영팀</td>
+                <td>2025-08-10</td>
+                <td>324</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 페이징 -->
+    <div class="pagination">
+        <button>&laquo;</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>&raquo;</button>
+    </div>
+
+    <!-- 검색창 -->
+    <div class="search-box">
+        <input type="text" placeholder="검색어 입력">
+        <button>검색</button>
+    </div>
+
+</div>
+
+<!-- 푸터 -->
+<footer>
+    Copyright © VLAST Shop. All rights reserved.
+</footer>
+
+</body>
+</html>

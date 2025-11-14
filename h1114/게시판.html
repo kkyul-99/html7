@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VLAST Shop - 게시판</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <style>
+    .banner{width:100%; height:320px;
+            background:url("image/bg_topBg1_2.jpg");
+            text-align:center;}
+    .banner span{font-size:24px; font-weight:500; color:white;
+                  padding-top:24px;}
+    .banner span #txt{font-size:48px;}
+    nav{width:828px; height:80px; box-sizing:border-box;
+        border-bottom:1px solid #e8e8e8; margin:0 auto;}
+    nav ul{list-style:none; display:flex; justify-content:space-between;
+            font-size:19px; font-weight:500; letter-spacing:-0.5px; color:#1d1d1d;}
+    nav ul li{width:120px; height:80px;}
+    nav ul li a{display:inline-block; height:77px;}
+    nav ul li a:hover{border-bottom:3px solid #718929; color:#718929;}
+    a{text-decoration:none; color:inherit;}
+    
+  </style>
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="top-menu">
+      <a href="#"><i class="fa-solid fa-circle-user"></i> 회원가입</a> |
+      <a href="#"><i class="fa-solid fa-key"></i> 로그인</a> |
+      <a href="#"><i class="fa-solid fa-display"></i> 주문조회</a> |
+      <a href="#"><i class="fa-solid fa-heart"></i> 최근본상품</a>
+    </div>
+    <div class="icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-bag"></i>
+    </div>
+  </div>
+
+  <!-- nav -->
+  <nav>
+    <ul>
+      <li><a href="">포레스트</a></li>
+      <li><a href="">스파</a></li>
+      <li><a href="">객실</a></li>
+      <li><a href="">특별한 경험</a></li>
+      <li><a href="">부대시설</a></li>
+      <li><a href="">브랜드 소개</a></li>
+    </ul>
+  </nav>
+
+  <!-- banner -->
+  <div class="banner">
+    <span><span id="txt">리조트 이용 Q&A</span><br>편리한 이용을 위해 유선문의 전 확인해주세요</span>
+  </div>
+
+  <!-- Board List -->
+  <div class="board-container">
+    <div class="board-title">공지사항</div>
+    <table class="board-table">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>작성일</th>
+          <th>조회수</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5</td>
+          <td class="title"><a href="#">[공지] 추석 연휴 배송 안내</a></td>
+          <td>관리자</td>
+          <td class="date">2025-09-05</td>
+          <td class="views">123</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="title"><a href="#">9월 신규 회원 이벤트 안내</a></td>
+          <td>운영팀</td>
+          <td class="date">2025-09-01</td>
+          <td class="views">98</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="title"><a href="#">[점검] 사이트 정기 점검 안내</a></td>
+          <td>관리자</td>
+          <td class="date">2025-08-28</td>
+          <td class="views">211</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="title"><a href="#">배송비 정책 변경 안내</a></td>
+          <td>관리자</td>
+          <td class="date">2025-08-20</td>
+          <td class="views">156</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td class="title"><a href="#">홈페이지 리뉴얼 오픈!</a></td>
+          <td>운영팀</td>
+          <td class="date">2025-08-10</td>
+          <td class="views">324</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Pagination & Search -->
+    <div class="board-footer" >
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">&raquo;</a>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="검색어 입력">
+            <button>검색</button>
+        </div>
+    </div>
+    
+  </div>
+
+
+  <!-- Footer -->
+  <footer>
+    Copyright © VLAST Shop. All rights reserved.
+  </footer>
+
+</body>
+</html>
