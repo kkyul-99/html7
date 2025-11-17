@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label id="labelTxt">비밀번호</label>
+    <input type="text" id="pw"><br>
+    <label>비밀번호 확인</label>
+    <input type="text" id="pw2" onkeyup="loginBtn()"><br>
+    <span id="txt"></span><br>
+    <button type="button" onclick="loginBtn()">로그인</button>
+    <script>
+        function loginBtn(){
+            console.log(document.querySelector("#pw").value);
+            console.log(document.querySelector("#pw2").value);
+            console.log(document.querySelector("#labelTxt").innerText);
+            var pw1 = document.querySelector("#pw").value;
+            var pw2 = document.querySelector("#pw2").value;
+            if(pw1 == pw2){
+                document.querySelector("#txt").innerHTML="<span style='color:blue'>2개 비밀번호가 같습니다.</span>";
+                console.log("2개 비밀번호가 같습니다.");
+            }
+            else{
+                document.querySelector("#txt").innerHTML="<span style='color:red'>2개 비밀번호가 다릅니다.</span>";
+                console.log("2개 비밀번호가 다릅니다.");
+            }
+        }//loginBtn
+    </script>
+</body>
+</html>

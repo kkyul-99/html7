@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        if(){}
+        if(){} else{}
+        if(){} else if(){} else{}
+
+        var num = 10;
+        if(num>0){
+            document.write("0 초과입니다.");
+        }
+
+        var num = 10;
+        if(num>0){
+            document.write("0 초과입니다.");
+        }
+        else{
+            document.write("0 미만입니다.");
+        }
+        
+        var num = 10;
+        if(num>0) document.write("0 초과입니다."); // 1줄일 때 {}생략 가능 2줄 이상은 {}생략 불가
+        else if(num==0)
+        document.write("0 입니다.")
+        else
+        document.write("0 미만입니다.");
+
+        // 숫자를 입력받아, 60점 이상 합격, 60점 미만 불합격 출력하시오.
+        var num = Number(prompt("숫자를 입력하세요.>>"));
+        if(num>=60) document.write("합격입니다.");
+        else document.write("불합격입니다.");
+        
+        // 입력한 값이 홀수인지, 짝수인지 출력하시오.
+        // % 사용
+        var num = Number(prompt("숫자를 입력하세요.>>"));
+        if(num%2==0) document.write("짝수입니다.");
+        else document.write("홀수입니다.");
+        */
+
+        // 함수선언: function 함수명(){해당되는 명령어 입력}
+        /*
+        자바스크립트에서 html태그의 값을 가져오는 방법
+        input에 있는 값을 가져올 때: value
+        그 외 값을 가져올 때: innerText
+        html을 가져올 때: innerHtml
+        
+        html 위치점 찾기
+        - document.querySelector("#id")
+        - document.querySelector(".pw")
+        */
+
+        function loginBtn(){
+            alert("함수호출");
+            // 자바스크립트는 html과 같이 사용됨.
+            // 자바스크립트에서 특정한 곳에 값을 입력하려고 하면
+            // 1. 위치 파악, 2. 값을 가져옴
+            // 1. 위치 파악, 2. 값을 입력
+            console.log("id: ",document.querySelector("#id").value);
+            console.log("pw: ",document.querySelector(".pw").value);
+            console.log("제목: ",document.querySelector("#subTxt").innerText);
+            console.log("label: ",document.querySelector("#labelTxt").innerText);
+            document.querySelector("#id").value;
+            document.querySelector(".pw").value;
+            document.querySelector("#subTxt").innerText;
+            document.querySelector("#labelTxt").innerText;
+        }
+    </script>
+    <h1 id="subTxt">로그인정보</h1>
+    <form action="#" method="post">
+        <label id="labelTxt">아이디</label>
+        <input type="text" name="id" id="id"><br>
+        <label>패스워드</label>
+        <input type="text" name="pw" class="pw"><br>
+        <span id="txt"></span><br>
+        <input type="button" onclick="loginBtn()" value="로그인">
+    </form>
+</body>
+</html>

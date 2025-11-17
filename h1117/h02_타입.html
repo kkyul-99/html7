@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        [ 변수타입설명 ]
+        타입변경 - Number(), toString(), Boolean()
+        자바스크립트 특징 - 문자열숫자와 문자열숫자를 *, -, / 하면 자동 형변환됨.
+                        - 더하기는 자동형변환이 안되고 문자열로 인식됨.
+        문자열 + 숫자 = 문자열타입으로 변경됨.
+        a = a+b -> a+=b
+        b = a++ : a의 값을 b에 대입하고, 그 다음 1 증가
+        b = ++a : a의 값을 먼저 1 증가 후, b에 대입
+        var a = prompt("글자를 입력하세요.>>"); // 입력창 타입: string
+        var b = prompt("글자를 입력하세요.>>");
+        document.write(a+b+"<br>"); // 1020
+        document.write(a*b+"<br>"); // 200 - 문자열이라도 숫자이면 자동으로 형변환(*, -, /)
+        document.write(Number(a)+Number(b)+"<br>"); // 30
+        document.write(typeof(a)+","+typeof(b));
+        
+        var a = 10, b = 0;
+        b = ++a; // a+=1   cf) --a
+        document.write(a,",",b,"<br>"); // a:11 b:11
+        var c = 10, d = 0;
+        d = c++; // c+=1   cf) c--
+        document.write(c,",",d,"<br>"); // c:11 d:10
+        */
+
+        // prompt(), document.write()
+        // 2개의 숫자를 입력받아 더하기, 빼기, 곱하기, 나누기 결과값을 출력하시오. 
+        let a = prompt("숫자를 입력하세요.>>");
+        let b = prompt("숫자를 입력하세요.>>");
+        document.write("더하기: ",Number(a)+Number(b),"<br>");
+        document.write("빼기: ",Number(a)-Number(b),"<br>");
+        document.write("곱하기: ",Number(a)*Number(b),"<br>");
+        document.write("나누기: ",Number(a)/Number(b));
+    </script>
+</body>
+</html>

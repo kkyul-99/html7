@@ -1,0 +1,1 @@
+document.write("외부링크 연결됨 <br>")

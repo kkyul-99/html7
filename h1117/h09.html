@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{border:1px solid black; border-collapse:collapse;}
+        table{margin:20px auto; text-align:center;}
+        th,td{width:100px; height:40px;}
+    </style>
+</head>
+<body>
+    <script>
+        /* python for문:
+        for i in range(10):
+            print(i) */
+        /* js for문:
+        for(초기값; 조건식; 증감식){} */
+        /* // 100 넘는 시점이 언제인지 출력하고, 100 넘는 시점의 결과값도 출력하시오.
+        var sum = 0;
+        for(var i=0; i<=100; i++){
+            sum += i;
+            if(sum>100){
+                document.write("i: ",i,"sum: ",sum,"<br>");
+                document.write("이전 i: ",i-1,"이전 sum: ",sum-i,"<br>");
+                break;
+            }
+        }
+        document.write("합계: ",sum); */
+        
+        /* // 1-10까지 합을 구하시오.
+        var sum = 0;
+        for(var i=1; i<=10; i++){
+            sum += i;
+        }
+        document.write("합계: ",sum,"<br>"); */
+
+        /* for(var i=2; i<=9; i++){
+            for(var j=1; j<=9; j++){
+                document.write(i," X ",j," = ",(i*j)+"<br>")
+                // ``: 빽키
+                document.write(`${i} X ${j} = ${i*j} <br>`);
+            }
+        } */
+    </script>
+    <table>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+    <script>
+        console.log(document.querySelector("#tbody").innerText);
+        var tbody = document.querySelector("#tbody");
+        for(var i=2; i<=9; i++){
+            tbody.innerHTML +=
+            `<tr>
+                <td colspan=5>[ ${i}단 ]</td>
+            </tr>`;
+            for(var j=1; j<=9; j++){
+                console.log(i);
+                tbody.innerHTML = tbody.innerHTML +
+                `<tr>
+                    <td>${i}</td>
+                    <td>X</td>
+                    <td>${j}</td>
+                    <td>=</td>
+                    <td>${i*j}</td>
+                </tr>`;
+            }
+        }
+        // html 코드를 만들어서 innerHTML로 넣어야 함.
+    </script>
+</body>
+</html>

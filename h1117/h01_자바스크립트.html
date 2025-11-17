@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트</title>
+    <!-- 자바스크립트 외부링크 -->
+    <script src="js/script.js"></script>
+    <script>
+        document.write("hello<br>")
+    </script>
+</head>
+<body>
+    <script>
+        //한줄 주석, /* 여러줄 주석 */
+        // "태그로 인식"
+        /*
+        - 변수선언: var, let - 문자열, 숫자(정수,실수), boolean
+          let a;     // undefined(정의되지 않음)
+          a = 100;   // 숫자(정수)
+          a = "안녕"; // 문자열
+          a = 1.5;   // 숫자(실수)
+          a = true;  // boolean
+        - 상수선언: const
+          상수는 한번 값이 정해지면 수정불가, 사용은 가능
+          const A = 10;
+        - 경고창: alert()
+          alert("경고창");
+        - 확인질문창: confirm()
+          confirm("게시글을 삭제하시겠습니까?");
+        - 콘솔출력: console.log()
+          console.log("콘솔창에 로그가 출력됨. document.write(): 화면에 출력");
+        - 타입확인: typeof()
+
+        - 화면 출력: document.write
+          document.write("안녕하세요");
+          document.write("<h1>안녕하세요</h1>");
+        - 입력창: prompt
+          prompt("입력창");
+
+        var num=0;
+        document.write(num+"<br>");
+        var input = prompt("입력창: 숫자를 입력하세요.>>");
+        document.write("입력값: ",input+"<br>");
+        let result = confirm("1번 게시글을 삭제하시겠습니까?");
+        document.write("결과: ",result);
+        A = 20;
+        document.writhe("결과: ",A);
+        */
+
+        let a;
+        document.write(typeof(a),"<br>"); // undefined - 정의되지 않음
+        let b = 100;
+        document.write(typeof(b),"<br>"); // number - 정수
+        let c = 1.5;
+        document.write(typeof(c),"<br>"); // number - 실수
+        let d = "안녕";
+        document.write(typeof(d),"<br>"); // string - 문자열
+    </script>
+</body>
+</html>
