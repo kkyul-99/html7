@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        table,th,td{border:1px solid black; border-collapse: collapse;}
+        th,td{width:100px; height:40px; text-align: center; }
+        #txt{width:400px; height:50px; border:1px solid black; }
+    </style>
+</head>
+<body>
+    <label>이름</label>            <!--입력창 이름(제목)-->
+    <input type="text" id="name" onkeyup="keyBtn(event)">    <!--입력창-->
+    <button type="button" onclick="saveBtn()">저장</button>   <!--버튼-->
+    <div id="txt"></div>          <!--버튼 밑 저장목록 표시-->
+    <table>                       <!--표-->
+        <tr><td>이름</td></tr>     <!--표 목록-->
+        <tbody id="tbody">        <!--표 내용-->
+            <tr><td>홍길동</td></tr>
+            <tr><td>유관순</td></tr>
+        </tbody>
+    </table>
+    <script>
+        var arr = ['홍길동','유관순']                        // 내용 리스트화
+        document.querySelector("#txt").innerHTML = arr;    // div(id txt)에 arr 추가
+        function keyBtn(event){                            // 엔터키 입력으로 클릭되는 함수 설정
+            if(event.keyCode == 13){                       // 엔터키 코드는 13,
+                saveBtn();                                 // keyBtn으로 saveBtn 실행
+            }
+        }
+        function saveBtn(){                                            // 저장버튼 누를 시 적용시킬 내용 함수 설정
+            var name = document.querySelector("#name").value;          // 인풋에 입력되는 내용을 name으로 지정
+            arr.push(name);                                            // name에 입력된 내용 리스트(arr)에 추가
+            console.log(arr);                                          // 콘솔창에 arr 출력
+            document.querySelector("#txt").innerHTML = arr;            // div에 arr 출력
+            document.querySelector("#name").value = '';                // 입력창(id=name)에 입력 후 내용 지우기
+            document.querySelector("#name").focus();                   // 입력창 입력 후 다시 클릭되어있게 설정
+            var tbody = document.querySelector("#tbody");              // tbody에 들어갈 내용 tbody로 설정
+            console.log(tbody.innerHTML+`<tr><td>${name}</td></tr>`);  // 로그창에 이름 입력 후 저장 누를때 어떻게 내용이 추가되는지 출력
+            tbody.innerHTML += `<tr><td>${name}</td></tr>`;            // tbody(리스트화면)에 내용 출력
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //배열 - 여러개의 값을 저장
+        /*
+        var i = 0;
+        document.write(i+"<br>");
+
+        var arr = [1,2,3,4,5];
+        document.write(arr[0]+"<br>");
+        document.write(arr[1]+"<br>");
+        document.write(arr[2]+"<br>");
+        document.write(arr[3]+"<br>");
+        document.write(arr[4]+"<br>");
+        var arr2 = [1,'홍길동',100,91,90.5]
+        document.write(arr2[0]+"<br>");
+        document.write(arr2[1]+"<br>");
+        document.write(arr2[2]+"<br>");
+        document.write(arr2[3]+"<br>");
+        document.write(arr2[4]+"<br>");
+        // 배열선언방법 - 리터럴생성, new객체생성
+        var arr = [1,2,3];           
+        var arr2 = new Array(4,5,6);
+
+        // 배열추가 - push,unshift,splice
+        arr.push(4)     //배열에 맨뒤에 추가
+        arr.unshift(0); //배열 맨앞에 추가
+        arr.splice(2,0,5); // 2번째 위치에서 제거하지 않고, 5를 추가 - 0을 입력해야 추가가 됨.
+        // arr.splice(2,2); // 2번째 위치에서 2개를 제거 - 0을 입력하지 않으면 제거
+
+        // 배열수정 - 위치에 값을 입력하면 변경이 됨.
+        arr[0] = 100;
+
+        // 배열삭제 - pop,shift,splice
+        arr.pop();    // 맨뒤 삭제
+        arr.shift();  // 맨앞 삭제
+        document.write(arr+"<br>");
+        arr.splice(1,2); //1번째 위치 2개를 삭제
+
+        document.write(arr+"<br>");
+        
+        */
+
+        var arr = ['홍길동','유관순','이순신']
+        document.querySelector("#txt").innerText = arr;
+
+    </script>
+    <label>이름</label>
+    <input type="text" id="name" onkeyup="keyBtn(event)" placeholder="이름을 입력하세요.">
+    <button type="button" onclick="saveBtn()">저장</button>
+    <div id="txt"></div>
+    <script>
+        var arr = ['홍길동','유관순','이순신']
+        document.querySelector("#txt").innerText = arr;
+        function keyBtn(event){
+            console.log("입력한 키값 : ",event.keyCode)
+            if(event.keyCode == 13){
+                saveBtn();
+            }
+        }
+        function saveBtn(){
+            //alert('저장버튼클릭');
+            arr.push(document.querySelector("#name").value);
+            console.log(arr);
+            document.querySelector("#txt").innerText = arr;
+            document.querySelector("#name").value = "";
+        }
+    </script>
+    
+</body>
+</html>

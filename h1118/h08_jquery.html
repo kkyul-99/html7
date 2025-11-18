@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // jquery 구문
+        $(function(){
+            // 이벤트에 관련된 사항은 이 구문 안에 작성해야 함.
+            $("#txt").text("안녕");                 // cf) js - innerText = "안녕"
+            console.log("이름: ",$(".c").text());
+            $("#sno").val($(".c").text());         // input 입력, value="홍길동"
+            console.log("이름: ",$("#name").val()); // input 출력, value
+            console.log($("p").text());
+            console.log($("ul").html());           // cf) js - innerHTML
+        });
+    </script>
+    <div id="txt"></div>
+    <div class="c">홍길동</div>
+    <p>안녕하세요</p>
+    <input type="text" id="sno"><br>
+    <input type="text" id="name" value="유관순"><br>
+    <ul>
+        <li>바나나</li>
+        <li>사과</li>
+    </ul>
+    <script>
+        //document.querySelector("#txt").innerText = "안녕"
+    </script>
+</body>
+</html>

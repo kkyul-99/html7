@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <script>
+        // 선택자: #, .
+        // text() - 글자, val() - input 글자
+        // parent() - 부모, children() - 자식
+        // next() - 다음, prev() - 이전, closest() - 가장 가까운 상위태그
+        // eq() - 형제관계에서 찾기
+        // attr() - 속성값 읽기
+        $(function(){
+            console.log($("li"));
+            console.log($("li").eq(0).text());
+            console.log($("ul").children().eq(0).attr("id"));
+            console.log($("#li01").parent().html());
+            console.log($("#li01").parent().attr("id"));
+            console.log($("#li01").next().text());
+            console.log($("li").eq(3).text());
+            console.log($("#li03").prev().text());
+            console.log($("#li03").closest("ul"));
+        });
+    </script>
+</head>
+<body>
+    <ul id="u01">
+        <li id="li01">1</li>
+        <li>홍길동</li>
+        <li>100</li>
+        <li id="li03">90</li>
+        <li>80</li>
+    </ul>
+</body>
+</html>
