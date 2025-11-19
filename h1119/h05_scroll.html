@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>scroll</title>
+    <style>
+        body{height:2000px; width:4000px;}
+        #d01{width:200px; height:200px; border:1px solid black;
+             position: fixed;  
+
+        }
+    </style>
+    <script>
+        $(function(){
+            $(window).on("scroll",function(){
+                var sc_top = $(this).scrollTop();
+                var sc_left = $(this).scrollLeft();
+                $("#d01").text("높이 : "+sc_top+", 오른쪽이동 : "+sc_left);
+            });
+
+        });//jquery
+    </script>
+</head>
+<body>
+    <div id="d01">
+
+    </div>
+    
+</body>
+</html>

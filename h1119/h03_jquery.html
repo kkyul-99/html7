@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <script>
+        // 기존태그를 가져와서 새로운태그를 추가해서 다시 입력하는 형태
+        // append()- 뒤에 추가, prepend() - 앞에 추가
+        // html() : 기존태그삭제후 추가
+
+        $(function(){
+            var str1 = "사과";
+            var str2 = "배";
+            var str3 = "복숭아";
+            var str4 = "바나나";
+            var str_all = "<li>"+str1+"</li><li>"+str2+"</li><li>"+str3+"</li><li>"+str4+"</li>";
+            var str_all2 = `<li>${str1}</li><li>${str2}</li><li>${str3}</li><li>${str3}</li>`;
+            
+            $("#btn").click(()=>{
+                f_append();
+            })
+
+            $("#fruit").keyup((event)=>{
+                if(event.keyCode ==13 ) f_append();
+            })
+
+            //추가함수
+            var f_append = () => {
+                var f = $("#fruit").val(); //추가하려는 데이터
+                $("#u01").append(`<li>${f}</li>`);
+            }
+
+        });//jquery
+
+       
+
+       
+
+
+        /*
+        function btn(){
+        }
+        
+        //js 6, 화살표함수
+        var btn = () =>{
+        }
+        */
+        
+    </script>
+</head>
+<body>
+    <input type="text" name="fruit" id="fruit"><br>
+    <button type="button" id="btn">저장</button>
+    <br>
+    <ul id="u01">
+        <li>바나나</li>
+        <li>딸기</li>
+    </ul>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <style>
+        .c01{width:100px; height:100px; border:1px solid black;}
+        .on{background:yellow;}
+        .off{background:green;}
+    </style>
+    <script>
+        $(function(){
+            $("#cBtn").click(()=>{
+                $(".c01").toggleClass("on");
+                //$(".c01").addClass("on");
+                //$(".c01").css("background","yellow");
+            })
+            $("#canBtn").click(()=>{
+                $(".c01").toggleClass("off");
+                //$(".c01").removeClass("on");
+                //$(".c01").addClass("off");
+            })
+            /*
+            $("#cBtn").click(function(){
+            });
+            const bbb = () => {
+            }
+            function aaa(){
+            }
+            */
+
+            // 자바스크립트 this, 제이쿼리 $(this)
+            // 화살표 함수에는 $(this)가 안됨.
+            // 화살표 함수에 $(this)를 사용하려면 (e) -> e.target
+            $("input[type='text']").focus(function(){
+                $(this).addClass("on");
+            })
+            $("input[type='text']").focusout(function(){
+                $(this).removeClass("on");
+            })
+
+            $("#imgBtn").click(function(){
+                $("img").attr("src","image/back3.jpg")
+            })
+        });//jquery
+    </script>
+</head>
+<body>
+    <img src="image/back1.jpg"><br>
+    <button type="button" id="imgBtn">변경</button>
+
+    <div class="c01"></div>
+    <button type="button" id="cBtn">확인</button>
+    <button type="button" id="canBtn">취소</button>
+    <br>
+    <input type="text" class="c00" name="no"><br>
+    <input type="text" class="c00" name="name"><br>
+    <input type="text" class="c00" name="kor"><br>
+    <input type="text" class="c00" name="eng"><br>
+</body>
+</html>

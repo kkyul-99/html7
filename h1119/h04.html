@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //자바스크립트 객체
+        // key 와 value 구성이 되어 있음. {}로 정의함.
+        var stu = {
+            "no":1,"name":"홍길동","kor":100,"eng":100
+        }
+        console.log(stu);
+        console.log(stu.no);
+        // web에서 다른 web으로 전달시 object객체로 전달을 하면 해석이 안됨.
+        console.log(JSON.stringify(stu)); //Json문자열로 출력 - 
+
+        // 문자열 - JSON타입의 문자열
+        var stu2 = '{"no":1,"name":"홍길동","kor":100,"eng":100}'
+
+        console.log(stu2.no); //문자열에서 no을 못찾음
+        //웹 데이터 받을때 문자열형태
+        obj = JSON.parse(stu2); //자바스크립트 객체로 변경
+        console.log(obj); //자바스크립트 객체로 변경
+        console.log(obj.no) //객체의 no변수를 찾음.
+
+    </script>
+    
+</body>
+</html>
