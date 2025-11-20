@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>학생성적프로그램</title>
+    <style>
+        table,th,td{border:1px solid black; border-collapse: collapse;}
+        th,td{width:100px; height:40px; text-align: center;}
+    </style>
+    <script>
+        //자바스크립트 구문이 너무 길고, 어려움.
+        //쉽게 하기 위해서 제이쿼리 사용.
+        //stus.json 파일을 ajax 연결
+        $(function(){
+            $("#takeBtn").click(function(){
+                //alert("확인");
+                $.ajax({
+                    url:"stus.json", //연결할 주소
+                    type:"get",      //전송방식 - get(url에 데이터 포함), post(url에 노출되지 않음)
+                    data:{},         //보낼 데이터
+                    dataType:"json", //전송받을 타입 - text, html, jason, xml
+                    success:function(data){ //성공시
+                        alert("성공");
+                        console.log(data);
+                        // ``: 자바스크립트에서 변수(${})를 추가할 수 있는 코드
+                        let dataHtml = ``
+                        for(i=0;i<10;i++){
+                            dataHtml += `<tr>
+                                            <td>${data[i].sno}</td>
+                                            <td>${data[i].name}</td>
+                                            <td>${data[i].kor}</td>
+                                            <td>${data[i].eng}</td>
+                                            <td>${data[i].math}</td>
+                                            <td>${data[i].total}</td>
+                                            <td>${data[i].avg}</td>
+                                            <td>
+                                            </td>
+                                        </tr>`
+                        };//for
+                        $("#tbody").html(dataHtml); //append, prepend, html
+                    },
+                    error:function(){ //실패시
+                        alert("실패");
+                    }
+                });//ajax
+            });//click
+        });//jquery 구문
+
+        //document.querySelector("takeBtn").addEventListener("click",function(){}); //javascript
+
+        /* $(function(){
+            $("#takeBtn").click(function(){ //takeBtn 버튼을 눌렀을 때:
+                $.ajax({ //ajax로
+                    url:"stus.json", //stus.json 파일에서
+                    type:"get", // get 방식으로
+                    data:{},
+                    dataType:"json", //json 형식의 데이터로 받음.
+                    success:function(data){ //성공시
+                        alert("성공"); //"성공"창이 뜨고,
+                        console.log(data); //console 창에 전송받은 데이터 표시.
+                        var dataHtml = ``; //"dataHtml"이라는 변수로 공간 생성.
+                        for(var i=0;i<data.length;i++){ //i가 0부터 data.length만큼 1씩 증가하여
+                            //i번째 data의 sno/name/kor/neg/math/total/avg를 table 형식으로 받음.
+                            dataHtml += `<tr id="${data[i].sno}">
+                                            <td>${data[i].sno}</td>
+                                            <td>${data[i].name}</td>
+                                            <td>${data[i].kor}</td>
+                                            <td>${data[i].eng}</td>
+                                            <td>${data[i].math}</td>
+                                            <td>${data[i].total}</td>
+                                            <td>${data[i].avg}</td>
+                                            <td>
+                                                <button type="button" id="uBtn">수정</button>
+                                                <button type="button" id="dBtn">삭제</button>
+                                            </td>
+                                        </tr>`;
+                        }//for 구문
+                        $("#tbody").html(dataHtml); //tbody를 dataHtml로 대체.
+                    },//success
+                    error:function(data){alert("실패")} //실패시 "실패"창이 뜸.
+                });//ajax
+            });//takeBtn
+        });//jquery */
+    </script>
+</head>
+<body>
+    <button type="button" id="takeBtn">데이터 가져오기</button>
+    <form action="#" method="get">
+        <label>번호</label>
+        <input type="text" id="sno" name="sno"><br>
+        <label>이름</label>
+        <input type="text" id="name" name="name"><br>
+        <label>국어</label>
+        <input type="text" id="kor" name="kor"><br>
+        <label>영어</label>
+        <input type="text" id="eng" name="eng"><br>
+        <label>수학</label>
+        <input type="text" id="math" name="math" onkeyup="enterBtn(event)" ><br>
+        <button type="button" id="sbtn" onclick="saveBtn()" >성적저장</button>
+    </form>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th>합계</th>
+            <th>평균</th>
+            <th>비고</th>
+        </tr>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+</body>
+</html>

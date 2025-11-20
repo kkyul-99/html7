@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>학생성적프로그램</title>
+    <style>
+        table,th,td{border:1px solid black; border-collapse: collapse;}
+        th,td{width:100px; height:40px; text-align: center;}
+    </style>
+    <script>
+       $(function(){
+        $("#takeBtn").click(function(){
+            $.ajax({
+                url:"comment.json",
+                type:"get",
+                data:{},
+                dataType:"json",
+                success:function(data){
+                    alert("성공");
+                    console.log(data);
+                    let dataHtml = ``
+                    for(i=0;i<data.length;i++){
+                        dataHtml += `<tr>
+                                        <td>${data[i].cno}</td>
+                                        <td>${data[i].id}</td>
+                                        <td>${data[i].cdate}</td>
+                                        <td>${data[i].ccontent}</td>
+                                        <td>${data[i].cpw}</td>
+                                    </tr>`
+                    }//for
+                    $("#tbody").html(dataHtml);
+                },//success
+                error:function(data){
+                    alert("실패");
+                }//error
+            });//ajax
+        });//click
+       });//jquery
+    </script>
+</head>
+<body>
+    <button type="button" id="takeBtn">데이터 가져오기</button>
+    <form action="#" method="get">
+        <label>번호</label>
+        <input type="text" id="sno" name="sno"><br>
+        <label>이름</label>
+        <input type="text" id="name" name="name"><br>
+        <label>국어</label>
+        <input type="text" id="kor" name="kor"><br>
+        <label>영어</label>
+        <input type="text" id="eng" name="eng"><br>
+        <label>수학</label>
+        <input type="text" id="math" name="math" onkeyup="enterBtn(event)" ><br>
+        <button type="button" id="sbtn" onclick="saveBtn()" >성적저장</button>
+    </form>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>아이디</th>
+            <th>날짜</th>
+            <th>내용</th>
+            <th>비밀번호</th>
+        </tr>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+</body>
+</html>

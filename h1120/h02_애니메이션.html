@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <style>
+        img{width:300px;}
+    </style>
+    <script>
+        $(function(){
+            $("#lBtn").click(function(){
+                $("img").stop().animate({"width":"+=100px"},1000,function(){});
+            });//lBtn.click
+            $("#sBtn").click(function(){
+                $("img").stop().animate({"width":"-=100px"},1000,function(){});
+            });//sBtn.click
+
+            /* $("#on").click(function(){
+                $("#img").fadeIn(1000,function(){});
+            });//on
+            $("#off").click(function(){
+                $("#img").fadeOut(1000,function(){});
+            });//off */
+        });//jquery
+    </script>
+</head>
+<body>
+    <button type="button" id="lBtn">확대</button>
+    <button type="button" id="sBtn">축소</button>
+    <!-- <button type="button" id="on">나타남</button>
+    <button type="button" id="off">사라짐</button> -->
+    <br>
+    <img src="images/hana2.jpg" id="img">
+</body>
+</html>
