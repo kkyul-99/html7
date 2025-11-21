@@ -23,19 +23,29 @@
 	$(document).ready(function() {
 	}); */
 
-// 약식 jquery 구문
-	let cno = 2;
+	// 전역 변수
+	let cno = 1;
+	let flag = 0;
+	let id;
+	let cpw;
+	let cdate;
+	let ccontent;
+	// 약식 jquery 구문
 	$(function(){
 		// keyCode 함수
 		$(".replyTxt").keyup(function(e){
-			console.log(e.keyCode);
-			if(e.keyCode ==13){ // 13번 key(enter)를 눌렀을 때, replyBtn.click 함수 실행
+			//console.log(e.keyCode);
+			if(e.keyCode == 13){ // 13번 key(enter)를 눌렀을 때, replyBtn.click 함수 실행
 				$(this).closest("ul").find(".replyBtn").click();
 			}
 		});
 
-		// 등록버튼 클릭 함수
+		// 1. 등록버튼 클릭 함수
 		$(".replyBtn").click(function(){
+			if(flag != 0){
+				alert("다른 댓글 수정화면을 닫아야 등록이 가능합니다.")
+				return;
+			}
 			let ul = $(this).closest("ul");
 			// 댓글 내용 확인
 			if(ul.find(".replyType").val().length<=0){
@@ -46,10 +56,10 @@
 
 			// 댓글 정보
 			cno;
-			let id = "aaa"
-			let cpw = ul.find(".replynum").val();
-			let ccontent = ul.find(".replyType").val();
-			let cdate = todayTime();
+			id = "aaa"
+			cpw = ul.find(".replynum").val();
+			ccontent = ul.find(".replyType").val();
+			cdate = todayTime();
 
 			// 댓글 출력
 			let dataHtml = ``;
@@ -67,13 +77,98 @@
 			// 댓글리스트 앞에 추가
 			$(".replyBox").prepend(dataHtml);
 			cno++; // cno 1 증가
+			c_count(1); // c_count 함수 호출(flag가 1이므로 if 부분 실행)
 			ul.find(".replynum").val(""); // 빈 공백을 추가
 			ul.find(".replyType").val("");
-			alert("하단 댓글을 저장합니다.")
+			alert("하단 댓글을 저장합니다.");
 
 		});//replyBtn
 		
-		// 등록버튼 함수부분
+		// 2. 삭제버튼 클릭 함수
+		$(document).on("click",".deleteBtn",function(){
+			const ul = $(this).closest("ul");
+			//console.log(ul.attr("id"));
+			const no = $(this).closest("ul").attr("id");
+			if(confirm(ul.attr("id")+"번 댓글을 삭제하시겠습니까?")){
+				// remove() 삭제 진행
+				ul.remove();
+				// 댓글 총 개수 1씩 감소
+				c_count(2); // c_count 함수 호출(flag가 2이므로 else 부분 실행)
+			}
+		});//deleteBtn
+
+		// 3. 수정버튼 클릭 함수
+		$(document).on("click",".updateBtn",function(){
+			if(flag != 0){
+				alert("다른 댓글 수정화면을 닫아야 수정이 가능합니다.")
+				return;
+			}
+			alert("하단 댓글을 수정합니다.");
+			const ul = $(this).closest("ul");
+			//console.log(ul.attr("id")); // cno: 위치(id)
+			// 데이터 가져오기: id, cdate, ccontent
+			id = ul.find(".name").text().split(" ")[0]; // id: 아이디(aaa)
+			cdate = ul.find("span").text(); // 날짜
+			ccontent = ul.find(".txt").text(); // 하단 댓글 내용
+			let dataHtml = `<li class="name">${id} <span>${cdate}</span></li>
+							<li class="txt"><textarea class="replyType"></textarea></li>
+							<li class="btn">
+								<a class="rebtn uSaveBtn">저장</a>
+								<a class="rebtn cancelBtn">취소</a>
+							</li>`;
+			// 수정화면 태그 입력
+			$(this).closest("ul").html(dataHtml);
+			flag = 1; // 수정화면이 열림.
+
+		});//updateBtn
+
+		// 4. 수정 취소버튼 클릭 함수
+		$(document).on("click",".cancelBtn",function(){
+			const ul = $(this).closest("ul");
+			//console.log(ul.attr("id"));
+			// 기존 저장되어 있는 데이터 사용 - id, cdate, ccontent
+			let dataHtml = `<li class="name">${id} <span>${cdate}</span></li>
+							<li class="txt">${ccontent}</li>
+							<li class="btn">
+								<a class="rebtn updateBtn">수정</a>
+								<a class="rebtn deleteBtn">삭제</a>
+							</li>`;
+			ul.html(dataHtml);
+			flag = 0; // 수정화면이 닫힘.
+
+		});//cancelBtn
+
+		// 5. 수정 저장버튼 클릭 함수
+		$(document).on("click",".uSaveBtn",function(){
+			alert("댓글을 수정했습니다.")
+			const ul = $(this).closest("ul");
+			//console.log(ul.attr("id"));
+
+			// 수정 댓글 가져오기
+			console.log(ul.find(".replyType").val());
+			cdate = todayTime();
+			ccontent = ul.find(".replyType").val();
+			let dataHtml = `<li class="name">${id} <span>[${cdate}]</span></li>
+							<li class="txt">${ccontent}</li>
+							<li class="btn">
+								<a class="rebtn updateBtn">수정</a>
+								<a class="rebtn deleteBtn">삭제</a>
+							</li>`;
+
+			// ul에 태그 넣기
+			ul.html(dataHtml);
+			flag = 0; // 수정화면이 닫힘.
+		});//uSaveBtn
+
+		// 댓글 총 개수 변경 함수
+		const c_count = function(flag){
+			let comment_count = Number($(".comment_count").text());
+			if(flag == 1){//댓글 추가인 경우
+				($(".comment_count").text(comment_count+1));
+			}else{ //댓글 삭제인 경우
+				($(".comment_count").text(comment_count-1));
+			}
+		}
 		
 		// 날짜시간함수
 		const todayTime = function(){
@@ -85,9 +180,9 @@
 			let minute = now.getMinutes();
 			let second = now.getSeconds();
 			return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
-		};
+		};//todayTime
 
-		$.ajax({
+		/* $.ajax({
 			url:"comment.json",
 			type:"get",
 			dataType:"json",
@@ -97,7 +192,7 @@
 				console.log(data);
 			},
 			error:function(){alert("실패");}
-		});//ajax
+		});//ajax */
 
 	})//jquery
 </script>
@@ -281,7 +376,7 @@
 					<div class="replyWrite">
 						<ul>
 							<li class="in">
-								<p class="txt">총 <span class="orange">3</span> 개의 댓글이 달려있습니다.</p>
+								<p class="txt">총 <span class="orange comment_count">0</span> 개의 댓글이 달려있습니다.</p>
 								<p class="password">비밀번호&nbsp;&nbsp;<input type="password" class="replynum" /></p>
 								<textarea class="replyType replyTxt"></textarea>
 							</li>
@@ -292,14 +387,6 @@
 
 					<div class="replyBox">
 						<!-- 댓글 리스트 -->
-						<ul id='1'>
-							<li class="name">jjabcde <span>[2014-03-04&nbsp;&nbsp;15:01:59]</span></li>
-							<li class="txt">대박!!! 이거 저한테 완전 필요한 이벤트였어요!!</li>
-							<li class="btn">
-								<a class="rebtn updateBtn">수정</a>
-								<a class="rebtn deleteBtn">삭제</a>
-							</li>
-						</ul>
 
 						<!-- 댓글 수정 -->
 						<!--
@@ -307,8 +394,8 @@
 							<li class="name">jjabcde <span>[2014-03-04&nbsp;&nbsp;15:01:59]</span></li>
 							<li class="txt"><textarea class="replyType"></textarea></li>
 							<li class="btn">
-								<a href="#" class="rebtn">수정</a>
-								<a href="#" class="rebtn">삭제</a>
+								<a class="rebtn uSaveBtn">저장</a>
+								<a class="rebtn cancelBtn">취소</a>
 							</li>
 						</ul>
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <script>
+        //jquery에서 js 함수 호출은 가능하지만 역은 불가능함.
+        // jquery 선언부
+        $(function(){
+            $("#age").keyup(function(e){
+                if(e.keyCode == 13){
+                    if($("#age").val().trim().length<=0){
+                        alert("년도를 입력하세요.")
+                        return;
+                    }
+                    $("#ageBtn").click();
+                }
+            });//age
+
+            $("#ageBtn").click(function(){
+                //alert("확인");
+                /* if($("#age").val().trim().length<4){
+                    alert("4자리 이상 입력하세요.")
+                    return;
+                }
+
+                if(isNaN($("#age").val())){} 
+                    alert("숫자를 입력하셔야 합니다.")
+                    return;
+                } */
+                // NaN: "Not a Number"의 약자로 숫자가 아닌 값을 의미
+                // isNaN() = 변수의 값이 NaN인지 확인할 때 사용(반환값: boolean(true/false))
+                
+                // 첫 글자는 영문자, 숫자 4개를 입력하시오. ex) a2025
+                let age = $("#age").val();
+
+                // 1. 5자리인지 확인
+                // 2. 첫글자가 문자인지 확인
+                // 3. 2~5번째까지 숫자인지 확인
+                // a2025
+                console.log(age.substr(0,1)); // 1번째 문자 - a
+                console.log(age.substr(1));   // 1번째부터 끝까지 - 2025
+                console.log(age.substr(1,2)); // 1번째부터 2개를 자르기 - 20
+
+                if(age.length<5){
+                    alert("5자리 이상 입력하세요!");
+                    return;
+                }
+                if(!isNaN(age.substr(0,1))){
+                    alert("문자를 입력하셔야 합니다.")
+                    return;
+                }
+                if(isNaN(age.substr(1))){
+                    alert("숫자를 입력하셔야 합니다.")
+                    return;
+                }
+
+                console.log($("#age").val());
+            });//ageBtn
+
+            /* const ageBtn2 = function(){
+                console.log("제이쿼리선언 밖에 있는 함수");
+            } */
+
+        });//jquery
+
+        // javascript
+        function aBtn(){
+            alert("자바스크립트")
+        }
+
+        /* function ageBtn(){
+            console.log("ageBtn 호출")
+            ageBtn2();
+        }*/
+
+    </script>
+</head>
+<body>
+    <label>년도</label>
+    <input type="text" name="age" id="age" placeholder="첫글자는 영문자, 숫자 4개를 입력하시오."><br>
+    <input type="button" id="ageBtn" onclick="aBtn()" value="년도"><br> <!-- cf) input type="submit" -->
+    <!-- <button>로그인</button> -->
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <script>
+        $(function(){
+
+        });//jquery
+        function aBtn(){
+            // 정규표현식: 문자열에서 특정문자 조합을 찾기 위한 패턴
+            // 패턴: /^시작 [해당되는 문자] {시작자리,끝자리} $끝/
+            // [ab*&], [0-9a-zA-Z], [ㄱ-ㅎ가-힣]
+            // [0123456789] = [0,9] = \d
+            // [^!@] => 대괄호 안 ^: not(!, @만 제외하고 다 받겠다는 의미)
+            // test() => 맞으면 true, 틀리면 false
+
+            // 010-1111-1111
+            /* let reg_age1 = /^[01]{3}-[0-9]{4}-[0-9]{4}$/;
+            let reg_age2 = /^01[0-9]{1}-[0-9]{4}-[0-9]{4}$/; // ^01: 무조건 01로 시작
+            let reg_age3 = /^01.{1}-[0-9]{4}-[0-9]{4}$/; // ^01.: 01 뒤에 임의의 문자 아무거나 가능*/
+
+            // 아이디 첫문자는 영문소문자만 가능 / 영문자, 숫자 가능 / 3자리 이상, 10자리 이하
+            let reg_age = /^[a-z]{1}\w{2,9}$/ // \w = [0-9a-zA-Z]
+
+            if(reg_age.test($("#age").val())){
+                alert("가능")
+            }else{
+                alert("불가능")
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="age" id="age"><br>
+    <input type="button" id="ageBtn" onclick="aBtn()" value="확인"><br>
+</body>
+</html>
