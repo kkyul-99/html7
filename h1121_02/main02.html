@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>학생성적프로그램</title>
+    <style>
+        table,th,td{border:1px solid black; border-collapse: collapse;}
+        table{width:1200px;}
+        th,td{height:40px; text-align: center;}
+        img{width:100px;}
+    </style>
+    <script>
+        $(function(){
+            $("#takeBtn").click(function(){
+                $.ajax({
+                    url:"https://apis.data.go.kr/B551011/PhotoGalleryService1/galleryList1?serviceKey=b402c9dc953dda99fdf4e05eaf7db8cc47686b872648ad7beb33ae538b63c549&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&_type=json",
+                    type:"get",
+                    data:{},
+                    dataType:"json",
+                    success:function(data){
+                        alert("성공");
+                        console.log(data.response.body.items.item);
+                        let tour_data = data.response.body.items.item;
+                        let dataHtml = ``
+                        for(i=0;i<tour_data.length;i++){
+                            dataHtml += `<tr>
+                                            <td>${tour_data[i].galContentId}</td>
+                                            <td>${tour_data[i].galTitle}</td>
+                                            <td>${tour_data[i].galCreatedtime}</td>
+                                            <td>${tour_data[i].galPhotographyLocation}</td>
+                                            <td>${tour_data[i].galPhotographer}</td>
+                                            <td>${tour_data[i].galSearchKeyword}</td>
+                                            <td><img src="${tour_data[i].galWebImageUrl}"></td>
+                                        </tr>`;
+                        }
+                        $("#tbody").html(dataHtml);
+                    },
+                    error:function(){
+                        alert("실패");
+                    }
+                });//ajax
+            });//takeBtn
+        });//jquery
+    </script>
+</head>
+<body>
+    <button type="button" id="takeBtn">데이터 가져오기</button>
+    <form action="#" method="get">
+        <label>번호</label>
+        <input type="text" id="sno" name="sno"><br>
+        <label>이름</label>
+        <input type="text" id="name" name="name"><br>
+        <label>국어</label>
+        <input type="text" id="kor" name="kor"><br>
+        <label>영어</label>
+        <input type="text" id="eng" name="eng"><br>
+        <label>수학</label>
+        <input type="text" id="math" name="math" onkeyup="enterBtn(event)" ><br>
+        <button type="button" id="sbtn" onclick="saveBtn()" >성적저장</button>
+    </form>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>촬영일</th>
+            <th>촬영지역</th>
+            <th>작가</th>
+            <th>키워드</th>
+            <th>이미지</th>
+        </tr>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+</body>
+</html>
