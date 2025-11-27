@@ -1,7 +1,7 @@
 import oracledb
 def getConnection():
     return oracledb.connect\
-    (user="ora_user",password="1111",dsn="localhost:1521/xe")
+    (user="ora_user",password="1111",dsn="localhost:1521/xe") # dsn: data source name
 
 title = ['번호','이름','국어','영어','수학','합계','평균']
 
@@ -55,4 +55,3 @@ while (True):
         print("프로그램을 종료합니다.")
         break
     print("")
-    
